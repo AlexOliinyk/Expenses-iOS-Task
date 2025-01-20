@@ -17,6 +17,21 @@ class WalletViewModel: ObservableObject {
     private let bitcoinRateService = ServicesAssembler.bitcoinRateService() // Bitcoin rate service
     private var cancellables = Set<AnyCancellable>() // Combine subscriptions
     
+    // Group transactions by date
+    var groupedTransactions: [(date: Date, transactions: [Transaction])] {
+        let grouped = Dictionary(grouping: transactions) { transaction -> Date in
+            // Extract date without time component
+            return Calendar.current.startOfDay(for: transaction.date ?? Date())
+        }
+        
+        // Sort by date in descending order
+        let sortedGrouped = grouped.keys.sorted(by: >).map { date in
+            (date: date, transactions: grouped[date]!)
+        }
+        
+        return sortedGrouped
+    }
+    
     // MARK: - Initialization
     
     init() {

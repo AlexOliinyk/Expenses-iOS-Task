@@ -103,9 +103,15 @@ class WalletViewController: UIViewController {
 extension WalletViewController: UITableViewDelegate { }
 
 extension WalletViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // Return the number of date sections
+        return viewModel.groupedTransactions.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of transactions in the ViewModel
-        return viewModel.transactions.count
+        // Return the number of transactions in each date section
+        return viewModel.groupedTransactions[section].transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -114,8 +120,17 @@ extension WalletViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let transaction = viewModel.transactions[indexPath.row]
+        let transaction = viewModel.groupedTransactions[indexPath.section].transactions[indexPath.row]
         cell.configure(with: transaction)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // Return a formatted date for the section header
+        let date = viewModel.groupedTransactions[section].date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        return dateFormatter.string(from: date)
     }
 }
