@@ -19,11 +19,18 @@
 		1CA3B6622D22B0F600176711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3B6612D22B0F600176711 /* Assets.xcassets */; };
 		1CA3B6652D22B0F600176711 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3B6642D22B0F600176711 /* Base */; };
 		1CA3B6702D22B0F600176711 /* TransactionsTestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */; };
+		566C87C92D3ED316005C31B4 /* BitcoinRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C87C82D3ED316005C31B4 /* BitcoinRateResponse.swift */; };
 		5687E54E2D3D338C00483B38 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E54A2D3D338C00483B38 /* Transaction+CoreDataClass.swift */; };
 		5687E54F2D3D338C00483B38 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E54B2D3D338C00483B38 /* Transaction+CoreDataProperties.swift */; };
 		5687E5502D3D338C00483B38 /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E54C2D3D338C00483B38 /* Wallet+CoreDataClass.swift */; };
 		5687E5512D3D338C00483B38 /* Wallet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E54D2D3D338C00483B38 /* Wallet+CoreDataProperties.swift */; };
 		5687E5552D3D36FE00483B38 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E5542D3D36FE00483B38 /* CoreDataManager.swift */; };
+		5687E5582D3D397D00483B38 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E5572D3D397D00483B38 /* WalletViewModel.swift */; };
+		5687E55A2D3D3A3300483B38 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E5592D3D3A3300483B38 /* WalletViewController.swift */; };
+		5687E55D2D3D3DE300483B38 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E55C2D3D3DE300483B38 /* AddTransactionViewController.swift */; };
+		5687E5602D3D404C00483B38 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E55F2D3D404C00483B38 /* TransactionTableViewCell.swift */; };
+		5687E5622D3D703200483B38 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E5612D3D703200483B38 /* WalletView.swift */; };
+		5687E5642D3D753200483B38 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E5632D3D753200483B38 /* AddTransactionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,11 +67,18 @@
 		1CA3B66B2D22B0F600176711 /* TransactionsTestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTestTaskTests.swift; sourceTree = "<group>"; };
 		1CA3B6752D22B0F600176711 /* TransactionsTestTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTestTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		566C87C82D3ED316005C31B4 /* BitcoinRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinRateResponse.swift; sourceTree = "<group>"; };
 		5687E54A2D3D338C00483B38 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5687E54B2D3D338C00483B38 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5687E54C2D3D338C00483B38 /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5687E54D2D3D338C00483B38 /* Wallet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5687E5542D3D36FE00483B38 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		5687E5572D3D397D00483B38 /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
+		5687E5592D3D3A3300483B38 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		5687E55C2D3D3DE300483B38 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		5687E55F2D3D404C00483B38 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		5687E5612D3D703200483B38 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		5687E5632D3D753200483B38 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +121,7 @@
 				0DF1D1412D22DCC3001626E7 /* Helpers */,
 				0DF1D13F2D22DC4B001626E7 /* ServicesAssembler.swift */,
 				0DF1D1442D22DCFF001626E7 /* BitcoinRateService.swift */,
+				566C87C82D3ED316005C31B4 /* BitcoinRateResponse.swift */,
 				0D15405F2D22EF3400D6D63F /* AnalyticsService */,
 			);
 			path = Services;
@@ -142,6 +157,8 @@
 		1CA3B6542D22B0F500176711 /* TransactionsTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				5687E55B2D3D3DBC00483B38 /* AddTransaction */,
+				5687E5562D3D396100483B38 /* Wallet */,
 				5687E5532D3D36DA00483B38 /* CoreData */,
 				0DF1D13E2D22DC2D001626E7 /* Services */,
 				1CA3B6552D22B0F500176711 /* AppDelegate.swift */,
@@ -173,6 +190,34 @@
 				5687E5542D3D36FE00483B38 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		5687E5562D3D396100483B38 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				5687E55E2D3D403900483B38 /* Views */,
+				5687E5572D3D397D00483B38 /* WalletViewModel.swift */,
+				5687E5592D3D3A3300483B38 /* WalletViewController.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		5687E55B2D3D3DBC00483B38 /* AddTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				5687E55C2D3D3DE300483B38 /* AddTransactionViewController.swift */,
+				5687E5632D3D753200483B38 /* AddTransactionView.swift */,
+			);
+			path = AddTransaction;
+			sourceTree = "<group>";
+		};
+		5687E55E2D3D403900483B38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5687E55F2D3D404C00483B38 /* TransactionTableViewCell.swift */,
+				5687E5612D3D703200483B38 /* WalletView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,16 +353,23 @@
 				0D1540612D22EF5D00D6D63F /* AnalyticsEvent.swift in Sources */,
 				0DF1D1432D22DCD8001626E7 /* PerformOnce.swift in Sources */,
 				0DF1D1452D22DD06001626E7 /* BitcoinRateService.swift in Sources */,
+				5687E5622D3D703200483B38 /* WalletView.swift in Sources */,
+				5687E55D2D3D3DE300483B38 /* AddTransactionViewController.swift in Sources */,
 				0DF1D1472D22DD4A001626E7 /* AnalyticsService.swift in Sources */,
 				1CA3B65A2D22B0F500176711 /* ViewController.swift in Sources */,
 				1CA3B6562D22B0F500176711 /* AppDelegate.swift in Sources */,
 				5687E54E2D3D338C00483B38 /* Transaction+CoreDataClass.swift in Sources */,
+				5687E5642D3D753200483B38 /* AddTransactionView.swift in Sources */,
 				5687E54F2D3D338C00483B38 /* Transaction+CoreDataProperties.swift in Sources */,
 				5687E5502D3D338C00483B38 /* Wallet+CoreDataClass.swift in Sources */,
 				5687E5512D3D338C00483B38 /* Wallet+CoreDataProperties.swift in Sources */,
+				566C87C92D3ED316005C31B4 /* BitcoinRateResponse.swift in Sources */,
 				1CA3B6582D22B0F500176711 /* SceneDelegate.swift in Sources */,
 				1CA3B6602D22B0F500176711 /* TransactionsTestTask.xcdatamodeld in Sources */,
+				5687E5582D3D397D00483B38 /* WalletViewModel.swift in Sources */,
+				5687E55A2D3D3A3300483B38 /* WalletViewController.swift in Sources */,
 				5687E5552D3D36FE00483B38 /* CoreDataManager.swift in Sources */,
+				5687E5602D3D404C00483B38 /* TransactionTableViewCell.swift in Sources */,
 				0DF1D1402D22DC51001626E7 /* ServicesAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

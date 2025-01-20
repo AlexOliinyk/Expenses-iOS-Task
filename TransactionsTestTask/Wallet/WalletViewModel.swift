@@ -14,16 +14,24 @@ class WalletViewModel: ObservableObject {
     @Published var exchangeRate: Double? // Bitcoin to USD exchange rate
     
     private let coreDataManager = CoreDataManager.shared // Core Data manager
+    private let bitcoinRateService = ServicesAssembler.bitcoinRateService() // Bitcoin rate service
     private var cancellables = Set<AnyCancellable>() // Combine subscriptions
     
+    // MARK: - Initialization
+    
     init() {
-        loadWallet() // Load wallet data from Core Data
-        loadTransactions() // Load transactions from Core Data
-        fetchExchangeRate() // Fetch the latest Bitcoin exchange rate
+        loadWallet()
+        loadTransactions()
+        startFetchingExchangeRate(interval: 60) // Fetch rate every 60 seconds
     }
     
+    deinit {
+        stopFetchingExchangeRate() // Clean up rate-fetching task
+    }
+    
+    // MARK: - Wallet Management
+    
     func loadWallet() {
-        // Fetch existing wallet or create a new one if none exists
         if let wallet = coreDataManager.fetchWallet() {
             balance = wallet.balance
             exchangeRate = wallet.cachedExchangeRate
@@ -83,53 +91,23 @@ class WalletViewModel: ObservableObject {
         loadTransactions()
     }
     
-    func fetchExchangeRate() {
-        // Fetch the latest Bitcoin exchange rate from the API
-        let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
-        URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: BitcoinRateResponse.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                if case .failure(let error) = completion {
-                    print("Error fetching exchange rate: \(error)")
-                }
-            }, receiveValue: { [weak self] response in
-                // Update the exchange rate and cache it in Core Data
-                guard let self = self else { return }
-                self.exchangeRate = response.bpi.usd.rateFloat
-                self.updateWalletExchangeRate(response.bpi.usd.rateFloat)
-            })
-            .store(in: &cancellables)
+    // MARK: - Exchange Rate Management
+    
+    func startFetchingExchangeRate(interval: TimeInterval) {
+        Task {
+            await bitcoinRateService.startFetching(interval: interval)
+        }
+    }
+    
+    func stopFetchingExchangeRate() {
+        bitcoinRateService.stopFetching()
     }
     
     private func updateWalletExchangeRate(_ rate: Double) {
-        // Cache the latest exchange rate in Core Data
         if let wallet = coreDataManager.fetchWallet() {
             wallet.cachedExchangeRate = rate
             wallet.lastUpdated = Date()
             coreDataManager.saveContext()
         }
     }
-}
-
-// Struct to decode Bitcoin exchange rate response from API
-struct BitcoinRateResponse: Decodable {
-    struct BPI: Decodable {
-        struct USD: Decodable {
-            let rateFloat: Double
-            
-            enum CodingKeys: String, CodingKey {
-                case rateFloat = "rate_float"
-            }
-        }
-        
-        let usd: USD
-        
-        enum CodingKeys: String, CodingKey {
-            case usd = "USD"
-        }
-    }
-    
-    let bpi: BPI
 }
